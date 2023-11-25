@@ -1,23 +1,11 @@
 version: '3'
 services:
-  mysqlconn:
-    image: mysql:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: wiljamniklas
-      MYSQL_DATABASE: patientjournal
-    ports:
-      - "3306:3306"
   users:
     build:
       context: ./
     ports:
       - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqlconn:3306/users
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/users
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: wiljamniklas
-    depends_on:
-      - mysqlconn
-
-volumes:
-  mysql_data:
