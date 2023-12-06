@@ -9,9 +9,6 @@ spec:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-<<<<<<< Updated upstream
       nodePort: 30081  # range 30000-32767
-=======
-      nodePort: 31040  #range 30000-32767
->>>>>>> Stashed changes
+
   type: NodePort
