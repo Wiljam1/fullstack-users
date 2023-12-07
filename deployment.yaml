@@ -19,7 +19,7 @@ spec:
             - containerPort: 8081
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql-service:3306/patientjournal
+              value: jdbc:mysql://vm.cloud.cbh.kth.se:2757/patientjournal
             - name: SPRING_DATASOURCE_USERNAME
               value: root
             - name: SPRING_DATASOURCE_PASSWORD

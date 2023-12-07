@@ -6,6 +6,6 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://vm.cloud.cbh.kth.se:2756/patientjournal
+      SPRING_DATASOURCE_URL: jdbc:mysql://vm.cloud.cbh.kth.se:2757/patientjournal
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: wiljamniklas
