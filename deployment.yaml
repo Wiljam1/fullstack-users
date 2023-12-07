@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fullstack-users
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: fullstack-users
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fullstack-users
-          image: wiljam/fullstack-users:latest
+          image: registry.cloud.cbh.kth.se/deploy-a78aedc2-6b67-4c2c-95aa-abdd5901e6bb/users
           ports:
             - containerPort: 8081
           env:
