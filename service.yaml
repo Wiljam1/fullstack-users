@@ -5,10 +5,8 @@ metadata:
 spec:
   selector:
     app: fullstack-users
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-      nodePort: 30081  # range 30000-32767
-
-  type: NodePort
