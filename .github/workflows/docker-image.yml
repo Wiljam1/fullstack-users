@@ -9,8 +9,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      with:
-        ref: main  # Use your branch name
     - name: Print current commit hash
       run: |
         git log -1 --format='%H'
