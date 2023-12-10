@@ -9,6 +9,6 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
   datasource:
     url: jdbc:mysql://vm.cloud.cbh.kth.se:2757/patientjournal
-    username: ${ MYSQL_USERNAME }
-    password: ${ MYSQL_PASSWORD }
+    username: root
+    password: wiljamniklas
 
