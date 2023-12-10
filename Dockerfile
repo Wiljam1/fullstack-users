@@ -5,6 +5,6 @@ RUN mvn -f /app/pom.xml install
 
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/PatientApi-1.0.jar /app/PatientApi-1.0.jar
+COPY --from=build /app/target/fullstack-users-1.0.jar /app/fullstack-users-1.0.jar
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "/app/PatientApi-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/app/fullstack-users-1.0.jar"]
