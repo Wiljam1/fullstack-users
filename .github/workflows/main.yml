@@ -1,8 +1,8 @@
 name: kthcloud-ci
-on:
+"on":
   push:
     branches:
-      - main
+    - main
 jobs:
   docker:
     runs-on: ubuntu-latest
