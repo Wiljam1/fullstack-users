@@ -14,4 +14,5 @@ spec:
     spec:
       containers:
         - name: fullstack-users
-          image: registry.cloud.cbh.kth.se/deploy-a78aedc2-6b67-4c2c-95aa-abdd5901e6bb/users
+          image: registry.cloud.cbh.kth.se/deploy-dac1887e-42b2-4716-abe1-fd266d22921d/users-wwnr
+

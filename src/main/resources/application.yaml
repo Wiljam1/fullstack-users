@@ -8,7 +8,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
   datasource:
-    url: jdbc:mysql://vm.cloud.cbh.kth.se:2757/patientjournal
+    url: jdbc:mysql://vm.cloud.cbh.kth.se:2781/patientjournal
     username: root
     password: wiljamniklas
 
