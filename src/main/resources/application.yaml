@@ -8,7 +8,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MYSQLDialect
   datasource:
-    url: ${ SPRING_DATASOURCE_URL }
+    url: jdbc:mysql://vm.cloud.cbh.kth.se:2757/patientjournal
     username: ${ MYSQL_USERNAME }
     password: ${ MYSQL_PASSWORD }
 
