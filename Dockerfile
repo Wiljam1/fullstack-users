@@ -1,11 +1,11 @@
-FROM openjdk:21
+FROM maven:3.8.1-openjdk-17-slim AS build
+COPY src /app/src
+COPY pom.xml /app
+RUN mvn -f app/pom.xml install
 
+
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN sed -i 's/\r$//' mvnw # clean up the file in mvnw.
-
-COPY src ./src
-
-CMD ["./mvnw", "spring-boot:run"]
+COPY --from=build /app/target/PatientApi-1.0.jar /app/PatientApi-1.0.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/PatientApi-1.0.jar"]
