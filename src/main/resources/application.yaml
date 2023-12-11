@@ -12,3 +12,10 @@ spring:
     username: root
     password: wiljamniklas
 
+  cors:
+    allowed-origins: https://frontend-wwnr.app.cloud.cbh.kth.se
+    allowed-methods: GET,POST,PUT,DELETE
+    allowed-headers: "*"
+    allow-credentials: true
+    max-age: 3600
+
