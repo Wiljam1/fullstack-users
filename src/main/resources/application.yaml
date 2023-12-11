@@ -12,10 +12,3 @@ spring:
     username: root
     password: wiljamniklas
 
-logging:
-  file:
-    name: fullstack-users.log
-    path: /var/log
-  level:
-    org.springframework: DEBUG
-    kth.wiljam: INFO
