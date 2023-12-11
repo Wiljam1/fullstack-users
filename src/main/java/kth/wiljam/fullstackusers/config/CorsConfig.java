@@ -11,7 +11,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://frontend-wwnr.app.cloud.cbh.kth.se")
+                .allowedOrigins("https://frontend-wwnr.app.cloud.cbh.kth.se", "vm.cloud.cbh.kth.se")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true)
