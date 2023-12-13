@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@CrossOrigin(origins = {"https://frontend-wwnr.app.cloud.cbh.kth.se", "https://vm.cloud.cbh.kth.se"})
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class UserController {
 
     @Autowired

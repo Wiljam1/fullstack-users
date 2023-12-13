@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fullstack-users
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fullstack-users
+  template:
+    metadata:
+      labels:
+        app: fullstack-users
+    spec:
+      containers:
+        - name: fullstack-users
+          image: wiljam/fullstack-users:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql-service:3306/patientjournal
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: wiljamniklas
