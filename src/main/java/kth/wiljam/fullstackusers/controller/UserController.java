@@ -17,33 +17,33 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping(value = "/user", consumes = "application/json", produces = "application/json")
     User newUser(@RequestBody User user) {
         System.out.println("Received JSON payload: " + user);
         return userService.create(user);
     }
 
-    @GetMapping("/users")
+    @GetMapping(value = "/users", produces = "application/json")
     List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/patients")
+    @GetMapping(value = "/patients", produces = "application/json")
     List<User> getAllPatients() {
         return userService.getUsersWithPatientIdNotNull();
     }
 
-    @GetMapping("user/{id}")
+    @GetMapping(value = "user/{id}", produces = "application/json")
     User getUserById(@PathVariable Long id) {
         return userService.getById(id);
     }
 
-    @GetMapping("userInfo/{username}")
+    @GetMapping(value = "userInfo/{username}", produces = "application/json")
     User getUserByUsername(@PathVariable String username) {
         return userService.getByUsername(username);
     }
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
     public ResponseEntity<User> checkLogin(@RequestBody User user) {
         try {
             User validUser = userService.checkValidLogin(user);
