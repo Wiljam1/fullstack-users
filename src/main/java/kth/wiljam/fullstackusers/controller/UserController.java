@@ -20,7 +20,15 @@ public class UserController {
     @PostMapping(value = "/user", consumes = "application/json", produces = "application/json")
     User newUser(@RequestBody User user) {
         System.out.println("Received JSON payload: " + user);
-        return userService.create(user);
+
+        try {
+            User createdUser = userService.create(user);
+            System.out.println("User created: " + createdUser);
+            return createdUser;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @GetMapping(value = "/users", produces = "application/json")
