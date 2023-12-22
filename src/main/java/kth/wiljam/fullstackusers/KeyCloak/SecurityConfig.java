@@ -1,3 +1,4 @@
+/*
 package kth.wiljam.fullstackusers.KeyCloak;
 
 import org.springframework.context.annotation.Bean;
@@ -33,13 +34,13 @@ class SecurityConfig {
                 .permitAll()
                 .anyRequest()
                 .authenticated();
-        /*
+
         http.oauth2Login()
                 .and()
                 .logout()
                 .addLogoutHandler(keycloakLogoutHandler)
                 .logoutSuccessUrl("/");
-         */
+
         return http.build();
     }
 
@@ -60,3 +61,4 @@ class SecurityConfig {
                 .build();
     }
 }
+*/

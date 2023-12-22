@@ -1,3 +1,4 @@
+/*
 package kth.wiljam.fullstackusers.KeyCloak;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,10 +19,6 @@ public class KeycloakLogoutHandler implements LogoutHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(KeycloakLogoutHandler.class);
     private final RestTemplate restTemplate;
-
-    public KeycloakLogoutHandler() {
-        this(null);
-    }
 
     public KeycloakLogoutHandler(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -49,3 +46,4 @@ public class KeycloakLogoutHandler implements LogoutHandler {
     }
 
 }
+ */
