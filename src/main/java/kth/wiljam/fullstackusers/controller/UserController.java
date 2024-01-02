@@ -2,11 +2,18 @@ package kth.wiljam.fullstackusers.controller;
 
 import kth.wiljam.fullstackusers.model.User;
 import kth.wiljam.fullstackusers.services.UserService;
+import org.keycloak.KeycloakPrincipal;
+import org.keycloak.KeycloakSecurityContext;
+import org.keycloak.representations.AccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.oauth2.jwt.Jwt;
+import java.util.Map;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -37,9 +44,29 @@ public class UserController {
         }
     }
 
+    // Checks if user has correct role before returning all users
     @GetMapping(value = "/users", produces = "application/json")
+    @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
-        return userService.getAllUsers();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication.getPrincipal() instanceof Jwt jwt) {
+
+            // Debugging
+            System.out.println("Token Claims: " + jwt.getClaims());
+            System.out.println("Issuer: " + jwt.getIssuer());
+            System.out.println("Subject: " + jwt.getSubject());
+            System.out.println("Issued At: " + jwt.getIssuedAt());
+            System.out.println("Expiration: " + jwt.getExpiresAt());
+
+            Map<String, Object> realmAccess = (Map<String, Object>) jwt.getClaims().get("realm_access");
+            List<String> roles = (List<String>) realmAccess.get("roles");
+
+            if (roles.contains("default-roles-patient-keycloak")) {
+                return userService.getAllUsers();
+            }
+        }
+        throw new AccessDeniedException("Not authorized");
     }
 
     @GetMapping(value = "/patients", produces = "application/json")
