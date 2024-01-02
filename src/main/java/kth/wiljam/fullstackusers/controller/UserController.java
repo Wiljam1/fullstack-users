@@ -45,6 +45,7 @@ public class UserController {
     }
 
     // Checks if user has correct role before returning all users
+    // Tror man behöver auth token för allt man gör mot API ändå som det är nu, behöver nog inte göra extra-checkar
     @GetMapping(value = "/users", produces = "application/json")
     @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
